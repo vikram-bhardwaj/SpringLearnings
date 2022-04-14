@@ -4,18 +4,12 @@
 <beans>
 	
 	<bean id = "triangle" class = "com.test.package1.Triangle">	 <!-- this is to create triangle obj bean  -->
-		<property name = "pointA" ref = "point1" />    <!-- this will create Point class obj and refer to point1 bean values -->
-		<property name = "pointB">                  <!-- this will create point class obj and refer to inner bean with ID point2  -->
-			<bean id = "point2" class = "com.test.package1.Point">
-				<property name ="x" value = "20" />
-				<property name = "y" value = "0" />
-			</bean>
-		</property>
-		<property name="pointC">					<!-- this will ctreate point class obj and refer to inner bean.. will work without id aswell as its inner bean  -->
-			<bean class = "com.test.package1.Point">
-				<property name ="x" value = "10" />
-				<property name = "y" value = "15" />
-			</bean>
+		<property name = "points">
+			<list>
+				<ref bean = "point1"/>
+				<ref bean = "point2"/>
+				<ref bean = "point3"/>
+			</list>
 		</property>
 
 	</bean>
@@ -24,5 +18,12 @@
 		<property name ="x" value = "0" />
 		<property name = "y" value = "20" />
 	</bean>
-
+	<bean id = "point2" class = "com.test.package1.Point">
+		<property name ="x" value = "20" />
+		<property name = "y" value = "0" />
+	</bean>
+	<bean id = "point3" class = "com.test.package1.Point">
+		<property name ="x" value = "10" />
+		<property name = "y" value = "15" />
+	</bean>
 </beans>
